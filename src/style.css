@@ -55,3 +55,9 @@ body {
   content: "♦";
   color: red;
 }
+
+.card:after {
+  bottom: 20px;
+  right: 20px;
+  transform: rotate(180deg);
+}
