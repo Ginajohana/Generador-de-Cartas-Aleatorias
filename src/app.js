@@ -1,4 +1,3 @@
-/* eslint-disable */
 import "bootstrap";
 import "./style.css";
 import "./assets/img/rigo-baby.jpg";
@@ -6,6 +5,8 @@ import "./assets/img/4geeks.ico";
 import "@popperjs/core";
 
 window.onload = () => {
+  let randomCardBtn = document.getElementById("generate-card");
+  randomCardBtn.addEventListener("click", generateRandomCard);
   document.querySelector(".card").classList.add(generateRandomSuit());
   document.querySelector(".card").innerHTML = generateRandomNumber();
   console.log("Hello from the console!");
@@ -35,4 +36,11 @@ let generateRandomSuit = () => {
   let suit = ["diamond", "spade", "heart", "club"];
   let indexSuit = Math.floor(Math.random() * suit.length);
   return suit[indexSuit];
+};
+
+let generateRandomCard = () => {
+  let card = document.querySelector(".card");
+  card.classList.remove(...card.classList);
+  card.classList.add("card", generateRandomSuit());
+  card.innerHTML = generateRandomNumber();
 };
